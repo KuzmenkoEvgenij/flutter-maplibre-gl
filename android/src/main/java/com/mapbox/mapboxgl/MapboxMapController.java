@@ -1573,12 +1573,13 @@ final class MapboxMapController
       return;
     }
 
+    mapViewContainer.removeView(mapView);
+
     if (locationComponent != null) {
       locationComponent.setLocationComponentEnabled(false);
     }
     stopListeningForLocationUpdates();
 
-    mapViewContainer.removeView(mapView);
     mapView.onStop();
     mapView.onDestroy();
     mapView = null;
